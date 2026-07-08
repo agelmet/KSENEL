@@ -9,6 +9,7 @@
 <meta name="author" content="Άρης & Ελένη Ξενέλλη">
 <link rel="canonical" href="https://www.ksenellis.gr/">
 
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Οδοντιατρείο Ξενέλλη — Άρης & Ελένη Ξενέλλη | Παλαιό Φάληρο">
 <meta property="og:description" content="Προηγμένη χειρουργική εμφυτευμάτων, ενδοδοντία & αισθητική. Εξατομικευμένη φροντίδα στο Παλαιό Φάληρο από την οικογένεια Ξενέλλη.">
@@ -21,6 +22,7 @@
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23081714'/%3E%3Cpath d='M50 24c-9-7-22-5-25 6-2 8 1 16 3 26 1 6 2 14 6 14 5 0 4-12 8-12s3 12 8 12c4 0 5-8 6-14 2-10 5-18 3-26-3-11-16-13-25-6z' fill='none' stroke='%2363E2CE' stroke-width='4' stroke-linejoin='round'/%3E%3Cline x1='50' y1='30' x2='50' y2='52' stroke='%23CBA35C' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 
+<!-- Schema.org -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -170,19 +172,21 @@ section{position:relative;overflow:hidden}
 .mn-cta{margin-top:34px;display:flex;flex-direction:column;gap:14px}
 .mn-foot{margin-top:auto;padding-top:36px;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:rgba(245,242,234,.5)}
 
-/* ================= HERO (CENTERED & BRIGHTER) ================= */
+/* ================= HERO (FOCUSED & CLEAR) ================= */
 #hero{
   min-height:100svh;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  /* Push content lower so the center (smile) is completely visible */
+  justify-content:flex-end;
   align-items:center;
-  background:radial-gradient(circle at 50% 50%, rgba(99,226,206,.22), transparent 55%),
-             radial-gradient(circle at 50% 100%, rgba(203,163,92,.18), transparent 60%),
-             var(--abyss);
+  /* Background image with a gradient that is transparent at the top/center and darkens only at the bottom */
+  background: 
+    linear-gradient(180deg, rgba(8,23,20,0.1) 0%, rgba(8,23,20,0.15) 45%, rgba(8,23,20,0.85) 85%, var(--abyss) 100%),
+    url('https://github.com/agelmet/KSENEL/blob/main/densa.jpg?raw=true') center center / cover no-repeat;
   color:var(--bone);
   text-align:center;
-  padding:clamp(140px,20vh,220px) 20px clamp(60px,10vh,100px);
+  padding:clamp(120px,15vh,180px) 20px clamp(40px,8vh,60px);
 }
 .centered-hero{
   display:flex;
@@ -194,19 +198,19 @@ section{position:relative;overflow:hidden}
 .hero-kicker{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--mono);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mint);margin-bottom:26px}
 .hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 14px var(--mint);animation:pulse 2.4s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.h-title{font-size:clamp(3rem,7.5vw,6.4rem);letter-spacing:-.02em;line-height:1.1}
+.h-title{font-size:clamp(2.2rem,5.5vw,4.2rem);letter-spacing:-.02em;line-height:1.1}
 .h-line{display:block;overflow:hidden}
 .h-line>span{display:block;transform:translateY(112%);animation:riseUp 1.1s var(--easing) forwards}
 .h-line:nth-child(2)>span{animation-delay:.14s}
 @keyframes riseUp{to{transform:translateY(0)}}
 .h-title em{color:var(--mint);font-style:italic}
-.hero-sub{margin-top:26px;max-width:65ch;font-weight:300;font-size:1.1rem;color:rgba(245,242,234,.7);opacity:0;animation:fadeUp 1s .55s var(--easing) forwards}
-.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:36px;opacity:0;animation:fadeUp 1s .75s var(--easing) forwards}
+.hero-sub{margin-top:20px;max-width:65ch;font-weight:300;font-size:clamp(1rem,2vw,1.05rem);color:rgba(245,242,234,.85);opacity:0;animation:fadeUp 1s .55s var(--easing) forwards}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:30px;opacity:0;animation:fadeUp 1s .75s var(--easing) forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.hero-stats{display:flex;gap:clamp(30px,5vw,70px);justify-content:center;margin-top:clamp(50px,8vh,70px);padding-top:30px;border-top:1px solid rgba(245,242,234,.1);flex-wrap:wrap;width:100%;opacity:0;animation:fadeUp 1s .95s var(--easing) forwards}
-.hstat .n{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.5rem);color:#fff}
+.hero-stats{display:flex;gap:clamp(16px,4vw,50px);justify-content:center;margin-top:clamp(40px,6vh,60px);padding-top:24px;border-top:1px solid rgba(245,242,234,.15);flex-wrap:wrap;width:100%;opacity:0;animation:fadeUp 1s .95s var(--easing) forwards}
+.hstat .n{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);color:#fff}
 .hstat .n b{color:var(--mint);font-weight:400}
-.hstat .l{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,234,.5);margin-top:4px}
+.hstat .l{font-family:var(--mono);font-size:clamp(.55rem,1.2vw,.62rem);letter-spacing:.18em;text-transform:uppercase;color:rgba(245,242,234,.7);margin-top:4px}
 
 /* ticker */
 .ticker{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);background:var(--abyss);color:var(--bone);overflow:hidden;padding:15px 0}
@@ -486,6 +490,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
 </head>
 <body>
 
+<!-- LOADER -->
 <div id="loader" aria-hidden="true">
   <svg class="loader-mark" viewBox="0 0 100 100">
     <path d="M50 24c-9-7-22-5-25 6-2 8 1 16 3 26 1 6 2 14 6 14 5 0 4-12 8-12s3 12 8 12c4 0 5-8 6-14 2-10 5-18 3-26-3-11-16-13-25-6z"/>
@@ -498,6 +503,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
 <div id="progress" aria-hidden="true"></div>
 <div id="cring" aria-hidden="true"></div>
 
+<!-- HEADER -->
 <header id="header">
   <nav class="nav" aria-label="Κύριο μενού">
     <a href="#hero" class="brand">
@@ -522,6 +528,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </nav>
 </header>
 
+<!-- MOBILE NAV -->
 <div id="mobileNav" aria-hidden="true">
   <div class="mn-top">
     <div class="brand">
@@ -543,6 +550,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   <div class="mn-foot" data-t>Αγίου Αλεξάνδρου 69 · Παλαιό Φάληρο|Agiou Alexandrou 69 · Palaio Faliro</div>
 </div>
 
+<!-- HERO -->
 <section id="hero">
   <div class="centered-hero">
     <div class="hero-kicker"><span class="dot"></span><span data-t>Παλαιό Φάληρο · Αττική|Palaio Faliro · Athens</span></div>
@@ -556,6 +564,8 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
       <a class="btn ghost btn-magnet" href="#doctors"><span data-t>Γνωρίστε την Ομάδα|Meet the Team</span></a>
     </div>
     <div class="hero-stats">
+      <div class="hstat"><div class="n"><span class="cnt" data-to="7">0</span><b>+</b></div><div class="l" data-t>Χρόνια εμπειρίας|Years of experience</div></div>
+      <div class="hstat"><div class="n">100<b>%</b></div><div class="l" data-t>Εξατομικευμένη φροντίδα|Personalized care</div></div>
       <div class="hstat"><div class="n"><span class="cnt" data-to="70">0</span><b>+</b></div><div class="l" data-t>Άριστες κριτικές|Top reviews</div></div>
       <div class="hstat"><div class="n"><span class="cnt" data-to="10" data-dec="1">0.0</span></div><div class="l" data-t>Μέση βαθμολογία|Average rating</div></div>
       <div class="hstat"><div class="n">EOE<b>·</b>DGOI</div><div class="l" data-t>Εξειδίκευση εμφυτευμάτων|Implant specialization</div></div>
@@ -575,6 +585,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </div>
 
+<!-- DOCTORS (SIBLINGS) -->
 <section id="doctors" class="dk pad">
   <div class="wrap">
     <div class="sec-head rv" style="text-align:center; margin: 0 auto clamp(50px,7vh,80px);">
@@ -583,12 +594,13 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
       <p class="lead" style="margin: 18px auto 0;" data-t>Αδέλφια και συνεργάτες, μοιράζονται το ίδιο πάθος για την υψηλής ποιότητας οδοντιατρική φροντίδα.|Siblings and partners, sharing the same passion for high-quality dental care.</p>
     </div>
 
+    <!-- ARIS -->
     <div class="doc-cols rv">
       <div class="assoc-visual">
         <div class="assoc-portrait">
           <img src="https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/unnamed-65.jpg" alt="Άρης Ξενέλλης" loading="lazy">
         </div>
-        <div class="assoc-badge"><div class="a" data-t>Εξειδικευση|Specialization</div><div class="b" data-t>ΕΟΕ · DGOI</div></div>
+        <div class="assoc-badge"><div class="a" data-t>Εξειδίκευση|Specialization</div><div class="b" data-t>ΕΟΕ · DGOI</div></div>
       </div>
       <div class="doc-text">
         <h3 class="name" style="font-family:var(--display);font-size:clamp(2rem,3.5vw,2.8rem);line-height:1.1;margin-bottom:8px;" data-t>Άρης <em>Ξενέλλης</em>|Aris <em>Xenellis</em></h3>
@@ -604,6 +616,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
       </div>
     </div>
 
+    <!-- ELENI -->
     <div class="doc-cols alt rv d1">
       <div class="doc-text">
         <h3 class="name" style="font-family:var(--display);font-size:clamp(2rem,3.5vw,2.8rem);line-height:1.1;margin-bottom:8px;" data-t>Ελένη <em>Ξενέλλη</em>|Eleni <em>Xenelli</em></h3>
@@ -642,6 +655,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </section>
 
+<!-- DIFFERENCE -->
 <section id="trust" class="lt pad">
   <div class="wrap">
     <div class="sec-head rv">
@@ -668,6 +682,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services" class="lt pad" style="padding-top:0;">
   <div class="wrap">
     <div class="sec-head rv">
@@ -770,6 +785,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </section>
 
+<!-- TECH / SPACE -->
 <section id="tech" class="dk2 pad">
   <div class="wrap">
     <div class="sec-head rv">
@@ -799,6 +815,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </section>
 
+<!-- SCIENCE -->
 <section id="science" class="lt2 pad">
   <div class="wrap sci-grid">
     <div class="sci-sticky rv">
@@ -817,6 +834,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </section>
 
+<!-- CASES & BEFORE / AFTER -->
 <section id="cases" class="dk pad">
   <div class="wrap">
     <div class="sec-head rv">
@@ -878,6 +896,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </section>
 
+<!-- REVIEWS -->
 <section id="reviews" class="dk2 pad">
   <div class="wrap">
     <div class="rev-top">
@@ -904,6 +923,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </section>
 
+<!-- FAQ -->
 <section id="faq" class="lt pad">
   <div class="wrap faq-grid">
     <div class="faq-side rv">
@@ -936,6 +956,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="dk pad">
   <div class="wrap">
     <div class="sec-head rv">
@@ -961,6 +982,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-top">
@@ -996,6 +1018,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   </div>
 </footer>
 
+<!-- LIGHTBOX -->
 <div id="lb" aria-hidden="true">
   <button id="lbClose" type="button" aria-label="Κλείσιμο"><svg viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>
   <img id="lbImg" alt="">
