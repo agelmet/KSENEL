@@ -186,15 +186,32 @@ section{position:relative;overflow:hidden}
     url('https://github.com/agelmet/KSENEL/blob/main/densa.jpg?raw=true') center center / cover no-repeat;
   color:var(--bone);
   text-align:center;
-  padding:clamp(120px,15vh,180px) 20px clamp(40px,8vh,60px);
+  padding:clamp(120px,15vh,180px) 20px clamp(28px,5vh,46px);
 }
 .centered-hero{
+  position:relative;
   display:flex;
   flex-direction:column;
   align-items:center;
   max-width:900px;
   width:100%;
+  /* nudge the whole hero copy a bit lower on desktop */
+  margin-bottom:clamp(6px,3vh,34px);
 }
+/* palette-tinted scrim sitting BEHIND the copy so text stays readable and in front */
+.centered-hero::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:50%;
+  top:-6%;
+  transform:translateX(-50%);
+  width:min(150%,1180px);
+  height:116%;
+  background:radial-gradient(ellipse 62% 58% at 50% 46%, rgba(8,23,20,0.72) 0%, rgba(30,126,113,0.34) 40%, rgba(8,23,20,0) 78%);
+  pointer-events:none;
+}
+.centered-hero>*{position:relative;z-index:1;}
 .hero-kicker{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--mono);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mint);margin-bottom:26px}
 .hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 14px var(--mint);animation:pulse 2.4s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
@@ -223,7 +240,7 @@ section{position:relative;overflow:hidden}
 /* ================= REVEAL ================= */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--easing),transform .9s var(--easing)}
 .rv.in{opacity:1;transform:none}
-.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}.rv.d6{transition-delay:.6s}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
 
 /* ================= DOCTORS (SIBLINGS UNIFIED) ================= */
 .doc-cols{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,5vw,80px);align-items:center;margin-bottom:clamp(60px,10vh,100px)}
@@ -318,7 +335,8 @@ section{position:relative;overflow:hidden}
 .tcard .s{font-size:.85rem;font-weight:300;color:rgba(245,242,234,.66)}
 .tcard.a{grid-column:span 7;min-height:420px}
 .tcard.b{grid-column:span 5;min-height:420px}
-.tcard.c{grid-column:span 12;min-height:340px}
+.tcard.c{grid-column:span 5}
+.tcard.d{grid-column:span 7}
 .tech-note{margin-top:26px;display:flex;align-items:center;gap:14px;font-weight:300;color:rgba(245,242,234,.62);font-size:.96rem}
 .tech-note svg{width:20px;height:20px;stroke:var(--gold);stroke-width:1.8;fill:none;flex-shrink:0}
 
@@ -477,12 +495,44 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
   .hero-cta .btn{width:100%}
   .nav .btn{display:none}
   .ba-wide .frame{aspect-ratio:16/9}
+
+  /* --- Hero on mobile: lower, smaller, revealed on scroll --- */
+  #hero{
+    justify-content:flex-end;
+    padding-bottom:clamp(48px,10vh,88px);
+  }
+  .centered-hero{margin-bottom:0;}
+  /* stronger palette-tinted shadow behind the copy on mobile */
+  .centered-hero::before{
+    width:min(160%,760px);
+    height:120%;
+    top:-8%;
+    background:radial-gradient(ellipse 74% 60% at 50% 48%, rgba(8,23,20,0.86) 0%, rgba(30,126,113,0.4) 42%, rgba(8,23,20,0) 80%);
+  }
+  .hero-kicker{margin-bottom:16px;font-size:.62rem}
+  .h-title{font-size:clamp(1.85rem,8vw,2.4rem)}
+  .hero-sub{font-size:.92rem;margin-top:16px}
+  .hero-cta{margin-top:22px}
+  .hero-stats{margin-top:clamp(26px,4vh,40px);padding-top:18px}
+
+  /* Nothing visible before scroll: hide the whole copy block, then reveal */
+  .centered-hero{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .8s var(--easing),transform .8s var(--easing);
+  }
+  #hero.scrolled .centered-hero{opacity:1;transform:none;}
+  /* override the built-in per-element intro animations on mobile so the
+     reveal is driven purely by the scroll trigger */
+  .h-line>span{animation:none;transform:none;}
+  .hero-sub,.hero-cta,.hero-stats{animation:none;opacity:1;}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
   .rv{opacity:1;transform:none}
   .h-line>span{transform:none}
   .hero-sub,.hero-cta,.hero-stats,.hero-visual{opacity:1;animation:none}
+  .centered-hero{opacity:1 !important;transform:none !important}
   #cring,.grain{display:none}
 }
 </style>
@@ -615,20 +665,6 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
       </div>
     </div>
 
-    <!-- ARIS TIMELINE -->
-    <div class="tl-head rv" style="margin-top:clamp(32px,5vh,56px);">
-      <h3 data-t>Μια πορεία χτισμένη στην <em>πρώτη γραμμή</em>.|A path built on the <em>front line</em>.</h3>
-      <span class="tl-hint"><span data-t>Σύρετε|Drag</span><svg viewBox="0 0 30 14"><path d="M2 7h24M20 2l6 5-6 5"/></svg></span>
-    </div>
-    <div class="tl" id="timeline">
-      <article class="tl-card rv d1"><span class="tl-line"></span><div class="yr">2014–19</div><div class="tt" data-t>Οδοντιατρική Σχολή Αθηνών|Dental School of Athens</div><div class="ds" data-t>Απόφοιτος στον ελάχιστο δυνατό χρόνο σπουδών.|Graduated in the shortest possible study time.</div></article>
-      <article class="tl-card rv d2"><span class="tl-line"></span><div class="yr">2016</div><div class="tt" data-t>Γναθοπροσωπική Κλινική — «Ιπποκράτειο»|Maxillofacial Clinic — “Hippokratio”</div><div class="ds" data-t>Ένα έτος ως βοηθητικό μέλος, παράλληλα με τις σπουδές.|One year as an assistant member, alongside studies.</div></article>
-      <article class="tl-card rv d3"><span class="tl-line"></span><div class="yr">2018</div><div class="tt" data-t>Γναθοπροσωπική Κλινική — «Ευαγγελισμός»|Maxillofacial Clinic — “Evangelismos”</div><div class="ds" data-t>Ένα έτος ως βοηθητικό μέλος, με έμφαση στη χειρουργική στόματος.|One year as an assistant member, focused on oral surgery.</div></article>
-      <article class="tl-card rv d4"><span class="tl-line"></span><div class="yr">2019</div><div class="tt" data-t>Ίδρυση ιδιωτικού ιατρείου|Private practice founded</div><div class="ds" data-t>Λειτουργία ιατρείου έως σήμερα, με ρόλο συμβούλου χειρουργού για 2 επιπλέον ιατρεία σε σύνθετα περιστατικά.|Practice operating to this day, also acting as consulting surgeon for 2 further practices on complex cases.</div></article>
-      <article class="tl-card rv d5"><span class="tl-line"></span><div class="yr">2021</div><div class="tt" data-t>Στρατιωτική θητεία ως οδοντίατρος|Military service as a dentist</div><div class="ds" data-t>Πλήρης επανενεργοποίηση και λειτουργία της οδοντιατρικής μονάδας του στρατοπέδου.|Fully reactivating and running the camp's dental unit.</div><span class="medal" data-t>★ Ειδικός έπαινος|★ Special commendation</span></article>
-      <article class="tl-card rv d6"><span class="tl-line"></span><div class="yr">2022</div><div class="tt" data-t>Μετεκπαίδευση στα Εμφυτεύματα (ΕΟΕ · DGOI)|Implant Specialization (EOE · DGOI)</div><div class="ds" data-t>Ετήσιο πρόγραμμα εξειδίκευσης στα οδοντικά εμφυτεύματα, σε συνεργασία με τον γερμανικό φορέα DGOI.|One-year specialization program in dental implants, in collaboration with the German DGOI association.</div></article>
-    </div>
-
     <!-- ELENI -->
     <div class="doc-cols alt rv d1">
       <div class="doc-text">
@@ -651,6 +687,19 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
         </div>
         <div class="assoc-badge"><div class="a" data-t>Πτυχίο 8,11|Degree grade 8.11</div><div class="b" data-t>ΕΚΠΑ · 2019|NKUA · 2019</div></div>
       </div>
+    </div>
+
+    <div class="tl-head rv" style="margin-top:clamp(40px,8vh,100px);">
+      <h3 data-t>Μια πορεία χτισμένη στην <em>πρώτη γραμμή</em>.|A path built on the <em>front line</em>.</h3>
+      <span class="tl-hint"><span data-t>Σύρετε|Drag</span><svg viewBox="0 0 30 14"><path d="M2 7h24M20 2l6 5-6 5"/></svg></span>
+    </div>
+    <div class="tl rv" id="timeline">
+      <article class="tl-card"><span class="tl-line"></span><div class="yr">2014–19</div><div class="tt" data-t>Οδοντιατρική Σχολή Αθηνών|Dental School of Athens</div><div class="ds" data-t>Απόφοιτος στον ελάχιστο δυνατό χρόνο σπουδών.|Graduated in the shortest possible study time.</div></article>
+      <article class="tl-card"><span class="tl-line"></span><div class="yr">2016</div><div class="tt" data-t>Γναθοπροσωπική Κλινική — «Ιπποκράτειο»|Maxillofacial Clinic — “Hippokratio”</div><div class="ds" data-t>Ένα έτος ως βοηθητικό μέλος, παράλληλα με τις σπουδές.|One year as an assistant member, alongside studies.</div></article>
+      <article class="tl-card"><span class="tl-line"></span><div class="yr">2018</div><div class="tt" data-t>Γναθοπροσωπική Κλινική — «Ευαγγελισμός»|Maxillofacial Clinic — “Evangelismos”</div><div class="ds" data-t>Ένα έτος ως βοηθητικό μέλος, με έμφαση στη χειρουργική στόματος.|One year as an assistant member, focused on oral surgery.</div></article>
+      <article class="tl-card"><span class="tl-line"></span><div class="yr">2019</div><div class="tt" data-t>Ίδρυση ιδιωτικού ιατρείου|Private practice founded</div><div class="ds" data-t>Λειτουργία ιατρείου έως σήμερα, με ρόλο συμβούλου χειρουργού για 2 επιπλέον ιατρεία σε σύνθετα περιστατικά.|Practice operating to this day, also acting as consulting surgeon for 2 further practices on complex cases.</div></article>
+      <article class="tl-card"><span class="tl-line"></span><div class="yr">2021</div><div class="tt" data-t>Στρατιωτική θητεία ως οδοντίατρος|Military service as a dentist</div><div class="ds" data-t>Πλήρης επανενεργοποίηση και λειτουργία της οδοντιατρικής μονάδας του στρατοπέδου.|Fully reactivating and running the camp's dental unit.</div><span class="medal" data-t>★ Ειδικός έπαινος|★ Special commendation</span></article>
+      <article class="tl-card"><span class="tl-line"></span><div class="yr">2022</div><div class="tt" data-t>Μετεκπαίδευση στα Εμφυτεύματα (ΕΟΕ · DGOI)|Implant Specialization (EOE · DGOI)</div><div class="ds" data-t>Ετήσιο πρόγραμμα εξειδίκευσης στα οδοντικά εμφυτεύματα, σε συνεργασία με τον γερμανικό φορέα DGOI.|One-year specialization program in dental implants, in collaboration with the German DGOI association.</div></article>
     </div>
   </div>
 </section>
@@ -805,6 +854,10 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
       <figure class="tcard c rv" data-img="https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/unnamed-60.jpg">
         <img src="https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/unnamed-60.jpg" alt="Τίτλοι σπουδών και πιστοποιήσεις στον τοίχο του ιατρείου" loading="lazy">
         <figcaption class="ov"><span class="k" data-t>Πιστοποιήσεις|Credentials</span><span class="t" data-t>Τεκμηριωμένη γνώση|Documented expertise</span><span class="s" data-t>Τίτλοι Πανεπιστημίου Αθηνών & πιστοποίηση εμφυτευμάτων DGOI.|University of Athens degrees & DGOI implant certification.</span></figcaption>
+      </figure>
+      <figure class="tcard d rv d1" data-img="https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/unnamed-59.jpg">
+        <img src="https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/unnamed-59.jpg" alt="Λεπτομέρεια εργαλείων και οδοντιατρικής μονάδας" style="object-position:center 65%" loading="lazy">
+        <figcaption class="ov"><span class="k" data-t>Πρωτόκολλο GBT|GBT protocol</span><span class="t" data-t>Ελβετικό σύστημα EMS|Swiss EMS system</span><span class="s" data-t>Airflow & Perioflow — καθαρισμός νέας γενιάς για ούλα, δόντια και εμφυτεύματα.|Airflow & Perioflow — next-generation cleaning for gums, teeth and implants.</span></figcaption>
       </figure>
     </div>
     <p class="tech-note rv"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0114 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span data-t>Αγίου Αλεξάνδρου 69, Παλαιό Φάληρο — με εύκολη πρόσβαση και άνετο, φιλόξενο περιβάλλον.|Agiou Alexandrou 69, Palaio Faliro — with easy access and a comfortable, welcoming environment.</span></p>
@@ -1123,6 +1176,20 @@ var io = new IntersectionObserver(function(entries){
   });
 }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+/* ---------- Mobile hero: reveal copy once the user starts scrolling ---------- */
+(function(){
+  var hero = document.getElementById('hero');
+  if(!hero) return;
+  function onScroll(){
+    if(window.scrollY > 24){
+      hero.classList.add('scrolled');
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
 
 /* ---------- Counters ---------- */
 var cio = new IntersectionObserver(function(entries){
