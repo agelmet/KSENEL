@@ -240,7 +240,7 @@ section{position:relative;overflow:hidden}
 /* ================= REVEAL ================= */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--easing),transform .9s var(--easing)}
 .rv.in{opacity:1;transform:none}
-.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}.rv.d6{transition-delay:.6s}
 
 /* ================= DOCTORS (SIBLINGS UNIFIED) ================= */
 .doc-cols{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,5vw,80px);align-items:center;margin-bottom:clamp(60px,10vh,100px)}
@@ -473,6 +473,10 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
 @media (min-width:901px){
   .doc-cols.alt .assoc-visual{order:2}
   .doc-cols.alt .doc-text{order:1}
+  /* keep all five hero stats on a single row (Greek labels are longer) */
+  .hero-stats{flex-wrap:nowrap;gap:clamp(14px,2.6vw,40px);align-items:flex-start}
+  .hero-stats .hstat{flex:1 1 0;min-width:0}
+  .hero-stats .hstat .l{white-space:nowrap;font-size:clamp(.5rem,.92vw,.62rem);letter-spacing:.12em}
 }
 @media (max-width:1060px){
   .nav-links{display:none}
@@ -665,6 +669,20 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
       </div>
     </div>
 
+    <!-- ARIS TIMELINE -->
+    <div class="tl-head rv" style="margin-top:clamp(32px,5vh,56px);">
+      <h3 data-t>Μια πορεία χτισμένη στην <em>πρώτη γραμμή</em>.|A path built on the <em>front line</em>.</h3>
+      <span class="tl-hint"><span data-t>Σύρετε|Drag</span><svg viewBox="0 0 30 14"><path d="M2 7h24M20 2l6 5-6 5"/></svg></span>
+    </div>
+    <div class="tl" id="timeline">
+      <article class="tl-card rv d1"><span class="tl-line"></span><div class="yr">2014–19</div><div class="tt" data-t>Οδοντιατρική Σχολή Αθηνών|Dental School of Athens</div><div class="ds" data-t>Απόφοιτος στον ελάχιστο δυνατό χρόνο σπουδών.|Graduated in the shortest possible study time.</div></article>
+      <article class="tl-card rv d2"><span class="tl-line"></span><div class="yr">2016</div><div class="tt" data-t>Γναθοπροσωπική Κλινική — «Ιπποκράτειο»|Maxillofacial Clinic — “Hippokratio”</div><div class="ds" data-t>Ένα έτος ως βοηθητικό μέλος, παράλληλα με τις σπουδές.|One year as an assistant member, alongside studies.</div></article>
+      <article class="tl-card rv d3"><span class="tl-line"></span><div class="yr">2018</div><div class="tt" data-t>Γναθοπροσωπική Κλινική — «Ευαγγελισμός»|Maxillofacial Clinic — “Evangelismos”</div><div class="ds" data-t>Ένα έτος ως βοηθητικό μέλος, με έμφαση στη χειρουργική στόματος.|One year as an assistant member, focused on oral surgery.</div></article>
+      <article class="tl-card rv d4"><span class="tl-line"></span><div class="yr">2019</div><div class="tt" data-t>Ίδρυση ιδιωτικού ιατρείου|Private practice founded</div><div class="ds" data-t>Λειτουργία ιατρείου έως σήμερα, με ρόλο συμβούλου χειρουργού για 2 επιπλέον ιατρεία σε σύνθετα περιστατικά.|Practice operating to this day, also acting as consulting surgeon for 2 further practices on complex cases.</div></article>
+      <article class="tl-card rv d5"><span class="tl-line"></span><div class="yr">2021</div><div class="tt" data-t>Στρατιωτική θητεία ως οδοντίατρος|Military service as a dentist</div><div class="ds" data-t>Πλήρης επανενεργοποίηση και λειτουργία της οδοντιατρικής μονάδας του στρατοπέδου.|Fully reactivating and running the camp's dental unit.</div><span class="medal" data-t>★ Ειδικός έπαινος|★ Special commendation</span></article>
+      <article class="tl-card rv d6"><span class="tl-line"></span><div class="yr">2022</div><div class="tt" data-t>Μετεκπαίδευση στα Εμφυτεύματα (ΕΟΕ · DGOI)|Implant Specialization (EOE · DGOI)</div><div class="ds" data-t>Ετήσιο πρόγραμμα εξειδίκευσης στα οδοντικά εμφυτεύματα, σε συνεργασία με τον γερμανικό φορέα DGOI.|One-year specialization program in dental implants, in collaboration with the German DGOI association.</div></article>
+    </div>
+
     <!-- ELENI -->
     <div class="doc-cols alt rv d1">
       <div class="doc-text">
@@ -687,19 +705,6 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
         </div>
         <div class="assoc-badge"><div class="a" data-t>Πτυχίο 8,11|Degree grade 8.11</div><div class="b" data-t>ΕΚΠΑ · 2019|NKUA · 2019</div></div>
       </div>
-    </div>
-
-    <div class="tl-head rv" style="margin-top:clamp(40px,8vh,100px);">
-      <h3 data-t>Μια πορεία χτισμένη στην <em>πρώτη γραμμή</em>.|A path built on the <em>front line</em>.</h3>
-      <span class="tl-hint"><span data-t>Σύρετε|Drag</span><svg viewBox="0 0 30 14"><path d="M2 7h24M20 2l6 5-6 5"/></svg></span>
-    </div>
-    <div class="tl rv" id="timeline">
-      <article class="tl-card"><span class="tl-line"></span><div class="yr">2014–19</div><div class="tt" data-t>Οδοντιατρική Σχολή Αθηνών|Dental School of Athens</div><div class="ds" data-t>Απόφοιτος στον ελάχιστο δυνατό χρόνο σπουδών.|Graduated in the shortest possible study time.</div></article>
-      <article class="tl-card"><span class="tl-line"></span><div class="yr">2016</div><div class="tt" data-t>Γναθοπροσωπική Κλινική — «Ιπποκράτειο»|Maxillofacial Clinic — “Hippokratio”</div><div class="ds" data-t>Ένα έτος ως βοηθητικό μέλος, παράλληλα με τις σπουδές.|One year as an assistant member, alongside studies.</div></article>
-      <article class="tl-card"><span class="tl-line"></span><div class="yr">2018</div><div class="tt" data-t>Γναθοπροσωπική Κλινική — «Ευαγγελισμός»|Maxillofacial Clinic — “Evangelismos”</div><div class="ds" data-t>Ένα έτος ως βοηθητικό μέλος, με έμφαση στη χειρουργική στόματος.|One year as an assistant member, focused on oral surgery.</div></article>
-      <article class="tl-card"><span class="tl-line"></span><div class="yr">2019</div><div class="tt" data-t>Ίδρυση ιδιωτικού ιατρείου|Private practice founded</div><div class="ds" data-t>Λειτουργία ιατρείου έως σήμερα, με ρόλο συμβούλου χειρουργού για 2 επιπλέον ιατρεία σε σύνθετα περιστατικά.|Practice operating to this day, also acting as consulting surgeon for 2 further practices on complex cases.</div></article>
-      <article class="tl-card"><span class="tl-line"></span><div class="yr">2021</div><div class="tt" data-t>Στρατιωτική θητεία ως οδοντίατρος|Military service as a dentist</div><div class="ds" data-t>Πλήρης επανενεργοποίηση και λειτουργία της οδοντιατρικής μονάδας του στρατοπέδου.|Fully reactivating and running the camp's dental unit.</div><span class="medal" data-t>★ Ειδικός έπαινος|★ Special commendation</span></article>
-      <article class="tl-card"><span class="tl-line"></span><div class="yr">2022</div><div class="tt" data-t>Μετεκπαίδευση στα Εμφυτεύματα (ΕΟΕ · DGOI)|Implant Specialization (EOE · DGOI)</div><div class="ds" data-t>Ετήσιο πρόγραμμα εξειδίκευσης στα οδοντικά εμφυτεύματα, σε συνεργασία με τον γερμανικό φορέα DGOI.|One-year specialization program in dental implants, in collaboration with the German DGOI association.</div></article>
     </div>
   </div>
 </section>
@@ -1177,18 +1182,24 @@ var io = new IntersectionObserver(function(entries){
 }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 
-/* ---------- Mobile hero: reveal copy once the user starts scrolling ---------- */
+/* ---------- Mobile hero: reveal copy on scroll, or after 2s if idle ---------- */
 (function(){
   var hero = document.getElementById('hero');
   if(!hero) return;
+  var revealed = false;
+  function reveal(){
+    if(revealed) return;
+    revealed = true;
+    hero.classList.add('scrolled');
+    window.removeEventListener('scroll', onScroll);
+  }
   function onScroll(){
-    if(window.scrollY > 24){
-      hero.classList.add('scrolled');
-      window.removeEventListener('scroll', onScroll);
-    }
+    if(window.scrollY > 24){ reveal(); }
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+  /* if the visitor hasn't scrolled, show the hero copy after 2 seconds */
+  setTimeout(reveal, 2000);
 })();
 
 /* ---------- Counters ---------- */
