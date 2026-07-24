@@ -317,7 +317,7 @@ section{position:relative;overflow:hidden}
 .svc.open .svc-head .pl svg{stroke:var(--bone)}
 .svc-body{max-height:0;overflow:hidden;transition:max-height .65s var(--easing)}
 .svc-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(26px,4vw,60px);padding:6px 4px clamp(30px,4vh,44px)}
-.svc-inner>p{font-weight:300;color:var(--soft);font-size:1.01rem}
+.svc-inner>p, .svc-text-col>p{font-weight:300;color:var(--soft);font-size:1.01rem}
 .svc-inc .lbl{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mint-deep);margin-bottom:14px}
 .chips{display:flex;flex-wrap:wrap;gap:9px}
 .chip{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:24px;padding:8px 15px;font-size:.85rem;background:var(--paper);transition:border-color .25s,transform .25s}
@@ -557,7 +557,7 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
     <path d="M50 24c-9-7-22-5-25 6-2 8 1 16 3 26 1 6 2 14 6 14 5 0 4-12 8-12s3 12 8 12c4 0 5-8 6-14 2-10 5-18 3-26-3-11-16-13-25-6z"/>
     <line x1="50" y1="30" x2="50" y2="52"/>
   </svg>
-  <div class="ln">KSENELLIS · DENTAL SURGERY</div>
+  <div class="ln">XENELLIS · DENTAL SURGERY</div>
 </div>
 
 <div class="grain" aria-hidden="true"></div>
@@ -850,16 +850,30 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
           <span class="pl"><svg viewBox="0 0 24 24"><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg></span>
         </button>
         <div class="svc-body">
-          <div class="svc-inner">
-            <p data-t>Ένα όμορφο χαμόγελο μπορεί να ενισχύσει την αυτοπεποίθηση και να αναδείξει τα φυσικά χαρακτηριστικά του προσώπου. Στο ιατρείο μας προσφέρουμε σύγχρονες αισθητικές θεραπείες, όπως λεύκανση δοντιών και όψεις σύνθετης ρητίνης, με στόχο ένα φυσικό, αρμονικό και εξατομικευμένο αποτέλεσμα.|A beautiful smile can boost confidence and highlight the natural features of the face. In our practice we offer modern aesthetic treatments, such as teeth whitening and composite-resin veneers, aiming for a natural, harmonious and personalised result.</p>
-            <p data-t>Τις αισθητικές θεραπείες αναλαμβάνει η έμπειρη συνεργάτιδά μας Ελένη Ξενέλλη, η οποία, με ιδιαίτερη αισθητική αντίληψη και προσοχή στη λεπτομέρεια, σχεδιάζει κάθε θεραπεία σύμφωνα με τα χαρακτηριστικά, τις ανάγκες και τις επιθυμίες του κάθε ασθενούς. Στόχος της είναι να αναδείξει το φυσικό χαμόγελο, διατηρώντας την ισορροπία μεταξύ αισθητικής, λειτουργικότητας και υγείας των δοντιών.|Aesthetic treatments are undertaken by our experienced associate Eleni Xenelli who, with a keen aesthetic eye and attention to detail, designs each treatment according to each patient’s features, needs and wishes. Her goal is to bring out the natural smile, maintaining the balance between aesthetics, function and dental health.</p>
-            <p data-t>Η Ξενέλλη Ελένη αποφοίτησε από την Οδοντιατρική Σχολή Αθηνών το 2019. Έπειτα παρακολούθησε πλήθος σεμιναρίων στην Ελλάδα και το εξωτερικό, δίνοντας έμφαση στην Προληπτική και την Αισθητική Οδοντιατρική. Στις υπηρεσίες που προσφέρει, αφιερώνει τον χρόνο που χρειάζεται για να κατανοήσει το πρόβλημα του ασθενή και να εξηγήσει απλά αλλά επιστημονικά την ενδεδειγμένη θεραπεία. Κύριος στόχος της είναι όχι απλώς η επιφανειακή βελτίωση της αισθητικής, αλλά η μακροπρόθεσμη θεραπεία — σε επίπεδο αισθητικά, λειτουργικά και βιολογικά αποδεκτό.|Eleni Xenelli graduated from the Dental School of Athens in 2019. She went on to attend numerous seminars in Greece and abroad, with an emphasis on Preventive and Aesthetic Dentistry. In every treatment, she dedicates the time needed to understand the patient’s problem and explain the recommended therapy simply, yet scientifically. Her main goal is not a superficial aesthetic touch-up, but long-term treatment — at a level that is aesthetically, functionally and biologically sound.</p>
-            <div class="svc-inc">
-              <div class="lbl" data-t>Περιλαμβάνει|Includes</div>
-              <div class="chips">
-                <span class="chip"><span data-t>Λεύκανση δοντιών|Teeth whitening</span></span>
-                <span class="chip"><span data-t>Όψεις σύνθετης ρητίνης (bonding)|Composite veneers (bonding)</span></span>
+          <div class="svc-inner" style="align-items:start;">
+            <div class="svc-text-col" style="display:flex; flex-direction:column; gap:16px;">
+              <p data-t>Ένα όμορφο χαμόγελο μπορεί να ενισχύσει την αυτοπεποίθηση και να αναδείξει τα φυσικά χαρακτηριστικά του προσώπου. Στο ιατρείο μας προσφέρουμε σύγχρονες αισθητικές θεραπείες, όπως λεύκανση δοντιών και όψεις σύνθετης ρητίνης, με στόχο ένα φυσικό, αρμονικό και εξατομικευμένο αποτέλεσμα.|A beautiful smile can boost confidence and highlight the natural features of the face. In our practice we offer modern aesthetic treatments, such as teeth whitening and composite-resin veneers, aiming for a natural, harmonious and personalised result.</p>
+              <p data-t>Τις αισθητικές θεραπείες αναλαμβάνει η έμπειρη συνεργάτιδά μας Ελένη Ξενέλλη, η οποία, με ιδιαίτερη αισθητική αντίληψη και προσοχή στη λεπτομέρεια, σχεδιάζει κάθε θεραπεία σύμφωνα με τα χαρακτηριστικά, τις ανάγκες και τις επιθυμίες του κάθε ασθενούς. Στόχος της είναι να αναδείξει το φυσικό χαμόγελο, διατηρώντας την ισορροπία μεταξύ αισθητικής, λειτουργικότητας και υγείας των δοντιών.|Aesthetic treatments are undertaken by our experienced associate Eleni Xenelli who, with a keen aesthetic eye and attention to detail, designs each treatment according to each patient’s features, needs and wishes. Her goal is to bring out the natural smile, maintaining the balance between aesthetics, function and dental health.</p>
+              <p data-t>Η Ξενέλλη Ελένη αποφοίτησε από την Οδοντιατρική Σχολή Αθηνών το 2019. Έπειτα παρακολούθησε πλήθος σεμιναρίων στην Ελλάδα και το εξωτερικό, δίνοντας έμφαση στην Προληπτική και την Αισθητική Οδοντιατρική. Στις υπηρεσίες που προσφέρει, αφιερώνει τον χρόνο που χρειάζεται για να κατανοήσει το πρόβλημα του ασθενή και να εξηγήσει απλά αλλά επιστημονικά την ενδεδειγμένη θεραπεία. Κύριος στόχος της είναι όχι απλώς η επιφανειακή βελτίωση της αισθητικής, αλλά η μακροπρόθεσμη θεραπεία — σε επίπεδο αισθητικά, λειτουργικά και βιολογικά αποδεκτό.|Eleni Xenelli graduated from the Dental School of Athens in 2019. She went on to attend numerous seminars in Greece and abroad, with an emphasis on Preventive and Aesthetic Dentistry. In every treatment, she dedicates the time needed to understand the patient’s problem and explain the recommended therapy simply, yet scientifically. Her main goal is not a superficial aesthetic touch-up, but long-term treatment — at a level that is aesthetically, functionally and biologically sound.</p>
+              <div class="svc-inc" style="margin-top:10px;">
+                <div class="lbl" data-t>Περιλαμβάνει|Includes</div>
+                <div class="chips">
+                  <span class="chip"><span data-t>Λεύκανση δοντιών|Teeth whitening</span></span>
+                  <span class="chip"><span data-t>Όψεις σύνθετης ρητίνης (bonding)|Composite veneers (bonding)</span></span>
+                </div>
               </div>
+            </div>
+            
+            <div class="svc-visual-col" style="display:flex; flex-direction:column; align-items:center; gap:24px; padding-top:10px;">
+              <div class="assoc-visual" style="max-width:280px; width:100%;">
+                <div class="assoc-portrait" style="width:100%;">
+                  <img src="https://raw.githubusercontent.com/agelmet/KSENEL/refs/heads/main/unnamed-206.jpg" alt="Ελένη Ξενέλλη" loading="lazy">
+                </div>
+              </div>
+              <a class="btn ghost btn-magnet" href="https://www.doctoranytime.gr/d/Odontiatros/ksenelli-eleni" target="_blank" rel="noopener">
+                <span data-t>Προφίλ στο Doctoranytime|Profile on Doctoranytime</span>
+                <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -907,8 +921,8 @@ footer{background:var(--abyss);color:var(--bone);border-top:1px solid var(--line
         <img src="https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/nelli.jpg" alt="Νέλλη — φωτογραφία ιατρείου" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/unnamed-60.jpg';this.closest('figure').dataset.img=this.src;">
         <figcaption class="ov"><span class="k" data-t>Πιστοποιήσεις|Credentials</span><span class="t" data-t>Τεκμηριωμένη γνώση|Documented expertise</span><span class="s" data-t>Τίτλοι Πανεπιστημίου Αθηνών & πιστοποίηση εμφυτευμάτων DGOI.|University of Athens degrees & DGOI implant certification.</span></figcaption>
       </figure>
-      <figure class="tcard d rv d1" data-img="https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/ems-system.jpg">
-        <img src="https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/ems-system.jpg" alt="Ελβετικό σύστημα EMS — Airflow & Perioflow" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/unnamed-59.jpg';this.style.objectPosition='center 65%';this.closest('figure').dataset.img=this.src;">
+      <figure class="tcard d rv d1" data-img="https://raw.githubusercontent.com/agelmet/KSENEL/refs/heads/main/emsa.jpg">
+        <img src="https://raw.githubusercontent.com/agelmet/KSENEL/refs/heads/main/emsa.jpg" alt="Ελβετικό σύστημα EMS — Airflow & Perioflow" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/agelmet/KSENELLIS/refs/heads/main/unnamed-59.jpg';this.style.objectPosition='center 65%';this.closest('figure').dataset.img=this.src;">
         <figcaption class="ov"><span class="k" data-t>Πρωτόκολλο GBT|GBT protocol</span><span class="t" data-t>Ελβετικό σύστημα EMS|Swiss EMS system</span><span class="s" data-t>Airflow & Perioflow — καθαρισμός νέας γενιάς για ούλα, δόντια και εμφυτεύματα.|Airflow & Perioflow — next-generation cleaning for gums, teeth and implants.</span></figcaption>
       </figure>
     </div>
